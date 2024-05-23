@@ -1,5 +1,5 @@
 <div class="w-100" >
-    <mat-card>
+    <!-- <mat-card>
         <mat-card-header>
             <h2>Você está na Home, favor efetuar o Login</h2>
         </mat-card-header>
@@ -9,6 +9,65 @@
             <button mat-raised-button color="primary" [routerLink]="['/login']">Login</button>
         </mat-card-actions>
 
-    </mat-card>
+    </mat-card> -->
+
+    <main class="index">
+      <div id="carouselExampleDark" class="carousel carousel-dark slide  ">
+        <div class="carousel-indicators ">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="3000">
+            <img src="../img/missao.jpg" class="imgCarousel" alt="...">
+            <div class="col-6 fundoCarousel">
+              <div class="textoCarousel">
+              <h1>Missão</h1><br>
+              <ul style="font-size: larger;">
+                <li>Buscar melhores soluções através de tecnologias atuais e inovadoras.</li><br>
+                <li>Solucionar problemas com agilidade.</li><br>
+                <li>Fornecer treinamentos e suportes personalizados para otimizar resultados e eficiência.  </li>
+              </ul>
+            </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src="../img/visao.jpg" class="imgCarouselVisao" alt="...">
+            <div class="col-6 fundoCarousel">
+              <div class="textoCarousel">
+              <h1>Visão</h1><br>
+              <ul style="font-size: larger;">
+                <li>Posicionar-nos entre os melhores nacionalmente.</li><br>
+                <li>Em um tempo médio de 10 anos, visando sempre um tempo menor.</li><br>
+                <li>Alcançar reconhecimento internacional.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src="../img/valores.jpg" class="imgCarousel" alt="...">
+            <div class="col-6 fundoCarousel">
+              <div class="textoCarousel">
+              <h1>Valores</h1><br>
+              <ul style="font-size: larger;">
+                <li>Atendemos empresas de pequeno a grande porte.</li><br>
+                <li>Nosso foco é promover transparência, compromisso e privacidade de dados de cada uma.</li><br>
+                <li>Sempre entregar o serviço dentro do prazo estimado.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </main>
 </div>
 

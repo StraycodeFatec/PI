@@ -1,40 +1,25 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<mat-toolbar class="nav">
+<!-- <mat-toolbar color="primary"> -->
+  <!-- <button mat-icon-button (click)="openSideNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-     <a class="navbar-brand" title="Página inicial" href="index.html"><img src="../img/strayCode.png" alt="logoStrayCode" class="home"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="abertura.html">Abrindo empresa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contabilidade.html">Como escolher o contador</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Planejamento
-          </a>
-          <ul class="dropdown-menu">
-            <a class="dropdown-item" href="marketing.html"><li>Marketing</li></a>
-            <a class="dropdown-item" href="financeiro.html"><li>Financeiro</li></a>
-            <a class="dropdown-item" href="concorrente.html"><li>Concorrentes</li></a>
-            <a class="dropdown-item" href="notaFiscal.html"><li>Nota Fiscal</li></a>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Informações
-          </a>
-          <ul class="dropdown-menu">
-              <a class="dropdown-item" href="cnae.html"><li>Escolhendo segmento CNAE</li></a>
-            <a class="dropdown-item" href="tributacao.html"><li>Escolhendo tributações</li></a>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <span> Aplicação Checklist </span> -->
+
+  <button mat-button [routerLink]="['/']"  ><img class="home" alt=""></button>
+  <button mat-button [routerLink]="['/abertura']">Abertura de Empresa</button>
+  <button mat-button [routerLink]="['/contabilidade']">Escolhendo Contabilidade</button>
+  <button mat-button [matMenuTriggerFor]="planejamento" >Planejamento</button>
+    <mat-menu #planejamento="matMenu">
+      <button mat-menu-item [routerLink]="['/marketing']" >Marketing</button>
+      <button mat-menu-item [routerLink]="['/financeiro']" >Financeiro</button>
+      <button mat-menu-item [routerLink]="['/nota-fiscal']" >Nota Fiscal</button>
+    </mat-menu>
+  <button mat-button [matMenuTriggerFor]="informacoes" >Informações</button>
+    <mat-menu #informacoes="matMenu">
+      <button mat-menu-item [routerLink]="['/cnae']" >Escolhendo segmento CNAE</button>
+      <button mat-menu-item [routerLink]="['/tributacao']" >Escolhendo Tributação</button>
+    </mat-menu>
+
+</mat-toolbar>
+
