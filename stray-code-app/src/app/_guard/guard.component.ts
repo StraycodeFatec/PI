@@ -12,7 +12,7 @@ export const autorizacaoGuard = () => {
       return true;
   }else{
       autorizaService.deslogar();
-      router.navigate(['/home']);
+      router.navigate(['/login']);
       return false;
   }
 };

@@ -11,6 +11,7 @@ import { FinanceiroComponent } from './financeiro/financeiro.component';
 import { NotaFiscalComponent } from './nota-fiscal/nota-fiscal.component';
 import { CnaeComponent } from './cnae/cnae.component';
 import { TributacaoComponent } from './tributacao/tributacao.component';
+import { QuestionarioComponent } from './questionario/questionario.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'nota-fiscal', component: NotaFiscalComponent},
   { path: 'cnae', component: CnaeComponent},
   { path: 'tributacao', component: TributacaoComponent},
+  { path: 'questionario', component: QuestionarioComponent, canActivate: [autorizacaoGuard]},
   { path: '**', component: HomeComponent},
 
 ];
