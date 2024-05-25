@@ -1,13 +1,30 @@
 <div>
     <mat-card>
         <mat-card-header>
-            <h2>Esta é a tela de Login, click em OK para Logar</h2>
+            <h2>{{descricaoLogin()}}</h2>
         </mat-card-header>
-    
-        <mat-card-actions class="flx-center-row flx-evly">
-            <button mat-raised-button color="primary" (click)="clickLogin()">{{descricaoLogin()}}</button>
-        </mat-card-actions>
-    
+        @if (!autorizacaoService.statusLogin()) {
+            <form [formGroup]="usuarioForm" #tableForm="ngForm">
+                <div class="mb-3">
+                    <label for="login" class="form-label">Login</label>
+                    <input type="text" formControlName = "usuario" class="form-control" name="login" id="login" placeholder="login">
+                </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" formControlName = "senha" class="form-control" name="senha" id="senha" placeholder="senha">
+                </div>
+            </form>
+        }
+        <div class="flx-center-row flx-evly">
+            <mat-card-actions class="flx-center-row">
+                <button mat-raised-button color="primary" (click)="clickLogin()">{{botaoLogin()}}</button>
+            </mat-card-actions>
+            @if (!autorizacaoService.statusLogin()) {
+            <mat-card-actions class="flx-center-row">
+                <button mat-raised-button color="primary" (click)="cadastrar()">Cadastrar</button>
+            </mat-card-actions>
+        }
+        </div>
     </mat-card>
     
 </div>
