@@ -32,13 +32,13 @@
         }
         <div class="flx-center-row flx-evly">
             <mat-card-actions class="flx-center-row">
-                <button mat-raised-button color="primary" (click)="clickLogin()">{{botaoLogin()}}</button>
+                <button mat-raised-button color="primary" (click)="this.autorizacaoService.statusLogin() ? logout() : clickLogin() ">{{botaoLogin()}}</button>
             </mat-card-actions>
             @if (!autorizacaoService.statusLogin()) {
             <mat-card-actions class="flx-center-row">
                 <button mat-raised-button color="primary" (click)="cadastrar()">Cadastrar</button>
             </mat-card-actions>
-        }
+            }
         </div>
     </mat-card>
 

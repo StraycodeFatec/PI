@@ -3,6 +3,7 @@ import { MaterialModule } from '../../material.module';
 import { AutorizacaoService } from '../../_service/service.component';
 import { LoginModel } from './login-model.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { CategoryEditComponent } from '../../category.edit/category.edit.component';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit{
   alertType: String = '';
   alertText: String = '';
   usaurioExiste: boolean = false;
+  usaurioLogado: boolean = false;
 
   botaoLogin = () =>
     this.autorizacaoService.statusLogin() ? "Sair" : "Entrar";
@@ -97,19 +99,28 @@ export class LoginComponent implements OnInit{
       && usuario.senha == this.usuarioForm.get('senha')?.value){
         if (!this.autorizacaoService.statusLogin()) {
           this.autorizacaoService.autorizar();
-        }else{
-          this.autorizacaoService.deslogar();
+          this.usaurioLogado=true;
+          return true;
         }
-        return;
-      }else{
+        return false;
+      }
+      return false;
+    })
+    if(!this.usaurioLogado){
       this.alert=true
       this.alertType = 'danger'
       this.alertText = 'Usuário e/ou senha incorreto'
       setTimeout(() => this.alert=false, this.timeout)
       }
 
-    })
-  };
+  }
+
+  logout(){
+    if(this.autorizacaoService.statusLogin()){
+      this.autorizacaoService.deslogar();
+      this.usaurioLogado = false;
+    }
+  }
 
   /*
   loginAutotizado = false;
