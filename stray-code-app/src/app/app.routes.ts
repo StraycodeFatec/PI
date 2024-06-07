@@ -12,11 +12,12 @@ import { NotaFiscalComponent } from './nota-fiscal/nota-fiscal.component';
 import { CnaeComponent } from './cnae/cnae.component';
 import { TributacaoComponent } from './tributacao/tributacao.component';
 import { QuestionarioComponent } from './questionario/questionario.component';
+import { PeriodicaComponent } from './periodica/periodica.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'categoria', component: CategoryComponent, canActivate: [autorizacaoGuard]},
+  { path: 'categoria', component: CategoryComponent},
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'abertura', component: AbrirEmpresaComponent},
@@ -27,6 +28,8 @@ export const routes: Routes = [
   { path: 'cnae', component: CnaeComponent},
   { path: 'tributacao', component: TributacaoComponent},
   { path: 'questionario', component: QuestionarioComponent, canActivate: [autorizacaoGuard]},
+  { path: 'periodica', component: PeriodicaComponent},
+
   { path: '**', component: HomeComponent},
 
 ];
