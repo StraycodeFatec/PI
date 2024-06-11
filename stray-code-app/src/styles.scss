@@ -1,36 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-// .h-p100{
-//     height: 100%;
-// }
-// .w-p10{
-//     width: 20%;
-// }
-
-// .ml-15{
-//     margin-left: 15px;
-// }
-
-// .w-100{
-//     width: 100%;
-// }
-
-// .w-300{
-//     width: 300px;
-// }
-// .mg-20{
-//     margin: 20px;
-// }
-
-// .mr-10{
-//     margin-right: 10px;
-// }
-
 .flx-center-row{
     display: flex;
     flex-direction: row ;
@@ -95,19 +65,19 @@ footer a {
 
 .missao{
   background-image: url(app/img/missao.jpg);
-  background-size: 100%;
+  background-size: 120%;
   background-repeat: no-repeat;
 }
 
 .visao{
   background-image: url(app/img/visao.jpg);
-  background-size: 100%;
+  background-size: 120%;
   background-repeat: no-repeat;
 }
 
 .valores{
   background-image: url(app/img/valores.jpg);
-  background-size: 100%;
+  background-size: 120%;
   background-repeat: no-repeat;
 }
 
@@ -228,6 +198,12 @@ footer a {
 
 .textoCarousel{
   margin-left: 40px;
+
+}
+
+.listaCarousel{
+ font-size: larger;
+ padding: 120px 0;
 }
 
 .carousel{
