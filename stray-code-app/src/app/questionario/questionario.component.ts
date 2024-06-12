@@ -14,7 +14,7 @@ export interface RamoEmpresa{
   idTipo: number;
 }
 
-export interface cnae{
+export interface Cnae{
   id: number;
   codigo: string;
   nome: string;
@@ -40,7 +40,7 @@ const RAMO_EMPRESA: RamoEmpresa[] = [
 {id:10, idTipo:3,nome:'TRANSPORTE AQUAVIÁRIO'}
 ]
 
-const CNAE: cnae[] = [
+const CNAE: Cnae[] = [
 {id:1,codigo:'0113-0/00',nome:'Cultivo de cana-de-açúcar',idRamo:1},
 {id:2,codigo:'0131-8/00',nome:'Cultivo de laranja',idRamo:1},
 {id:3,codigo:'0210-1/01',nome:'Cultivo de eucalipto',idRamo:2},
@@ -75,6 +75,7 @@ export class QuestionarioComponent {
   cnae = CNAE
 
   ramoEmpresaFiltrado!: RamoEmpresa[]
+  cnaeFiltrado!: Cnae[]
 
   popularRamoEmpresa(event: Event){
     const target = event.target as HTMLSelectElement;
@@ -88,9 +89,9 @@ export class QuestionarioComponent {
   popularCnae(event: Event){
     const target = event.target as HTMLSelectElement;
     if (target) {
-      const tipoId = target.value;
-    this.ramoEmpresaFiltrado = this.ramoEmpresa.filter(ramo => ramo.idTipo == Number(tipoId))
-    console.log(this.ramoEmpresaFiltrado)
+      const ramoId = target.value;
+    this.cnaeFiltrado = this.cnae.filter(cnae => cnae.idRamo == Number(ramoId))
+    console.log(this.cnaeFiltrado)
     }
   }
 
