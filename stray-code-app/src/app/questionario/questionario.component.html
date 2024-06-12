@@ -3,19 +3,20 @@
     <!-- <label for=""></label> -->
     <label for="exampleFormControlInput1" class="form-label">Tipo Empresa</label>
 
-  <select class="form-select" aria-label="Default select example">
-    <option selected>Selecione tipo empresa...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+  <select class="form-select" aria-label="Default select example" (change)="popularRamoEmpresa($event)">
+    <option selected hidden>Selecione ramo empresa...</option>
+    @for (tipo of tipoEmpresa; track $index) {
+      <option [value]="tipo.id">{{tipo.nome}}</option>
+
+    }
   </select>
     <label for="exampleFormControlInput1" class="form-label">Ramo Empresa</label>
 
-  <select class="form-select" aria-label="Default select example">
+  <select class="form-select" aria-label="Default select example" (change)="popularCnae($event)">
     <option selected>Selecione ramo empresa...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    @for (ramo of ramoEmpresaFiltrado; track $index) {
+      <option [value]="ramo.id">{{ramo.nome}}</option>
+    }
   </select>
     <label for="exampleFormControlInput1" class="form-label">CNAE</label>
 

@@ -70,5 +70,28 @@ const CNAE: cnae[] = [
   styleUrl: './questionario.component.scss'
 })
 export class QuestionarioComponent {
+  tipoEmpresa = TIPO_EMPRESA
+  ramoEmpresa = RAMO_EMPRESA
+  cnae = CNAE
+
+  ramoEmpresaFiltrado!: RamoEmpresa[]
+
+  popularRamoEmpresa(event: Event){
+    const target = event.target as HTMLSelectElement;
+    if (target) {
+      const tipoId = target.value;
+    this.ramoEmpresaFiltrado = this.ramoEmpresa.filter(ramo => ramo.idTipo == Number(tipoId))
+    console.log(this.ramoEmpresaFiltrado)
+    }
+  }
+
+  popularCnae(event: Event){
+    const target = event.target as HTMLSelectElement;
+    if (target) {
+      const tipoId = target.value;
+    this.ramoEmpresaFiltrado = this.ramoEmpresa.filter(ramo => ramo.idTipo == Number(tipoId))
+    console.log(this.ramoEmpresaFiltrado)
+    }
+  }
 
 }
