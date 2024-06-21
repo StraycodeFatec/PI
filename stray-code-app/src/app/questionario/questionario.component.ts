@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MaterialModule } from '../material.module';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { QuestionarioModel } from '../_models/questionario-model';
 
 export interface TipoEmpresa {
   id: number;
@@ -65,24 +68,47 @@ const CNAE: Cnae[] = [
 @Component({
   selector: 'app-questionario',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule,MaterialModule],
   templateUrl: './questionario.component.html',
   styleUrl: './questionario.component.scss'
 })
 export class QuestionarioComponent {
+  public questionarioForm!: FormGroup;
+
+  @Input() public editableQuestionario!: QuestionarioModel;
+
+  constructor(public formBuilder: FormBuilder){}
+
   tipoEmpresa = TIPO_EMPRESA
   ramoEmpresa = RAMO_EMPRESA
   cnae = CNAE
 
+  tipoEmpresaFiltrado!: TipoEmpresa[]
   ramoEmpresaFiltrado!: RamoEmpresa[]
   cnaeFiltrado!: Cnae[]
+
+  alert:boolean = false;
+  alertType: String = '';
+  alertText: String = '';
+
+  ngOnInit(){
+    this.questionarioForm = this.formBuilder.group({
+      tipo: this.editableQuestionario != null ? this.editableQuestionario.tipo :null,
+      ramo: this.editableQuestionario != null ?  this.editableQuestionario.ramo : null,
+      cnae: this.editableQuestionario != null ?  this.editableQuestionario.cnae : null,
+    });
+    this.popularTipoEmpresa();
+  }
+
+  popularTipoEmpresa(){
+    this.tipoEmpresaFiltrado = this.tipoEmpresa;
+  }
 
   popularRamoEmpresa(event: Event){
     const target = event.target as HTMLSelectElement;
     if (target) {
       const tipoId = target.value;
     this.ramoEmpresaFiltrado = this.ramoEmpresa.filter(ramo => ramo.idTipo == Number(tipoId))
-    console.log(this.ramoEmpresaFiltrado)
     }
   }
 
@@ -91,8 +117,37 @@ export class QuestionarioComponent {
     if (target) {
       const ramoId = target.value;
     this.cnaeFiltrado = this.cnae.filter(cnae => cnae.idRamo == Number(ramoId))
-    console.log(this.cnaeFiltrado)
     }
   }
 
+  cadastrar(){
+    console.log(this.questionarioForm.get('tipo')?.value)
+    console.log(this.questionarioForm.get('ramo')?.value)
+    console.log(this.questionarioForm.get('cnae')?.value)
+    this.alert=true
+    if(this.questionarioForm.get('tipo')?.value == null){
+      this.alertType = 'danger'
+      this.alertText = 'Deve Selecionar o Tipo Empresa'
+      setTimeout(() => this.alert=false, 4000)
+    }else if(this.questionarioForm.get('ramo')?.value == null){
+      this.alertType = 'danger'
+      this.alertText = 'Deve Selecionar o Ramo Empresa'
+      setTimeout(() => this.alert=false, 4000)
+    }else if(this.questionarioForm.get('cnae')?.value == null){
+      this.alertType = 'danger'
+      this.alertText = 'Deve Selecionar o Cnae'
+      setTimeout(() => this.alert=false, 4000)
+    }else{
+      this.alertType = 'success'
+      this.alertText = 'Questionário Salvo com sucesso'
+      setTimeout(() => this.alert=false, 4000)
+      this.questionarioForm.controls['tipo'].setValue(null)
+      this.questionarioForm.controls['ramo'].setValue(null)
+      this.questionarioForm.controls['cnae'].setValue(null)
+      this.tipoEmpresaFiltrado = [];
+      this.ramoEmpresaFiltrado = [];
+      this.cnaeFiltrado = [];
+      setTimeout(() => {this.popularTipoEmpresa()}, 200);
+    }
+  }
 }

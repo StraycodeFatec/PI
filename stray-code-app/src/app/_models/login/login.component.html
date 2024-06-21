@@ -1,8 +1,4 @@
 <div>
-  <!-- <div class="alert alert-success" role="alert">
-    A simple success alert—check it out!
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div> -->
   @if (alert && alertType=='success') {
     <div id="myAlert" class="alert alert-success alert-dismissible fade show" role="alert">
       <strong>{{alertText}}</strong>
@@ -31,14 +27,14 @@
             </form>
         }
         <div class="flx-center-row flx-evly">
-            <mat-card-actions class="flx-center-row">
-                <button mat-raised-button color="primary" (click)="this.autorizacaoService.statusLogin() ? logout() : clickLogin() ">{{botaoLogin()}}</button>
-            </mat-card-actions>
-            @if (!autorizacaoService.statusLogin()) {
-            <mat-card-actions class="flx-center-row">
-                <button mat-raised-button color="primary" (click)="cadastrar()">Cadastrar</button>
-            </mat-card-actions>
-            }
+              @if (!autorizacaoService.statusLogin()) {
+                <mat-card-actions class="flx-center-row">
+                  <button mat-raised-button color="primary" (click)="cadastrar()">Cadastrar</button>
+                </mat-card-actions>
+              }
+                <mat-card-actions class="flx-center-row">
+                    <button mat-raised-button color="primary" (click)="this.autorizacaoService.statusLogin() ? logout() : clickLogin() ">{{botaoLogin()}}</button>
+                </mat-card-actions>
         </div>
     </mat-card>
 

@@ -121,33 +121,6 @@ export class LoginComponent implements OnInit{
       this.usaurioLogado = false;
     }
   }
-
-  /*
-  loginAutotizado = false;
-
-  ngOnInit(): void {
-      this.statusLogin();
-  }
-
-
-  descricaoLogin = () => this.loginAutotizado ? "Estou Autorizado" : "Não Autorizado";
-  */
-
-  /*
-  statusLogin(){
-    this.loginAutotizado = !!localStorage.getItem("login");
-
-  clickLogin(){
-    if(this.loginAutotizado) {
-      localStorage.clear();
-      console.log("clear login");
-    }else{
-      localStorage.setItem("login", "SIM")
-      console.log("logado")
-      this.statusLogin();
-    }
-  };
-  */
 }
 
 

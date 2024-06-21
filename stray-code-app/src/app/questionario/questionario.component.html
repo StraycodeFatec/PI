@@ -1,30 +1,47 @@
-<!-- <p>questionario works!</p> -->
-<!-- <main class="index"> -->
-    <!-- <label for=""></label> -->
-    <label for="exampleFormControlInput1" class="form-label">Tipo Empresa</label>
 
-  <select class="form-select" aria-label="Default select example" (change)="popularRamoEmpresa($event)">
-    <option selected hidden>Selecione ramo empresa...</option>
-    @for (tipo of tipoEmpresa; track $index) {
-      <option [value]="tipo.id">{{tipo.nome}}</option>
-
+  <div class="container-fluid">
+    @if (alert && alertType=='success') {
+      <div id="myAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{alertText}}</strong>
+      </div>
     }
-  </select>
-    <label for="exampleFormControlInput1" class="form-label">Ramo Empresa</label>
-
-  <select class="form-select" aria-label="Default select example" (change)="popularCnae($event)">
-    <option selected hidden>Selecione ramo empresa...</option>
-    @for (ramo of ramoEmpresaFiltrado; track $index) {
-      <option [value]="ramo.id">{{ramo.nome}}</option>
+    @if (alert && alertType=='danger') {
+      <div id="myAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{alertText}}</strong>
+      </div>
     }
-  </select>
-    <label for="exampleFormControlInput1" class="form-label">CNAE</label>
+  </div>
+     <h1 class="espacamento">Questionário</h1>
+  <div class="container-fluid col-12 align-items-start espacamento">
+    <form [formGroup]="questionarioForm" #tableForm="ngForm">
+      <label class="form-label align-items-start">Tipo Empresa</label>
 
-  <select class="form-select" aria-label="Default select example">
-    <option selected hidden>Selecione Cnae...</option>
-    @for (c of cnaeFiltrado; track $index) {
-      <option [value]="c.id">{{c.nome}}</option>
-    }
+      <select class="form-select" formControlName="tipo" (change)="popularRamoEmpresa($event)">
+        @for (tipo of tipoEmpresaFiltrado; track $index) {
+          <option [value]="tipo.id">{{tipo.nome}}</option>
+        }
+      </select>
 
-  </select>
-<!-- </main> -->
+        <label class="form-label">Ramo Empresa</label>
+
+      <select class="form-select" formControlName="ramo" (change)="popularCnae($event)">
+        @for (ramo of ramoEmpresaFiltrado; track $index) {
+          <option [value]="ramo.id">{{ramo.nome}}</option>
+        }
+      </select>
+
+        <label  class="form-label">CNAE</label>
+
+      <select class="form-select" formControlName="cnae" >
+        @for (c of cnaeFiltrado; track $index) {
+          <option [value]="c.id">{{c.nome}}</option>
+        }
+      </select>
+    </form>
+  </div>
+
+    <div class="container-fluid d-flex justify-content-end">
+      <mat-card-actions class="botaoQuestionario flx-center-row">
+        <button mat-raised-button color="primary" (click)="cadastrar()">Cadastrar Resposta</button>
+      </mat-card-actions>
+    </div>
