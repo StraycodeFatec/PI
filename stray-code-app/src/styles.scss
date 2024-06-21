@@ -36,6 +36,10 @@ footer {
   text-align: center;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 footer a {
   color: white;
   text-decoration: none;
@@ -48,89 +52,65 @@ footer a {
 }
 
 .logoFooter {
-  background-image: url(assets/strayCode.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
   max-width: 20%;
   border-radius: 100px;
 }
 
 .home {
-  background-image: url(assets/strayCode.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
   max-width: 30px;
   border-radius: 100px;
 }
 
-.missao{
-  background-image: url(app/img/missao.jpg);
-  background-size: 120%;
-  background-repeat: no-repeat;
-}
 
-.visao{
-  background-image: url(app/img/visao.jpg);
-  background-size: 120%;
-  background-repeat: no-repeat;
-}
-
-.valores{
-  background-image: url(app/img/valores.jpg);
-  background-size: 120%;
-  background-repeat: no-repeat;
-}
 
 .nav {
   background: linear-gradient(#321a44, #4b008400) !important;
 }
 
 .abertura {
-  background-image: url(app/img/aberturaEmpresa.jpg);
+  background-image: url(assets/img/aberturaEmpresa.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .contabilidade{
-  background-image: url(app/img/contabilidade.jpg);
+  background-image: url(assets/img/contabilidade.jpg);
   background-size: 100%;
-
   background-repeat: no-repeat;
 }
 
 .tributacao{
-  background-image: url(app/img/tributacao.jpg);
+  background-image: url(assets/img/tributacao.jpg);
   background-size: 100%;
-
   background-repeat: no-repeat;
 }
 
 .marketing{
-  background-image: url(app/img/marketing.jpg);
+  background-image: url(assets/img/marketing.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .financeiro{
-  background-image: url(app/img/financeiro.jpg);
+  background-image: url(assets/img/financeiro.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .concorrente{
-  background-image: url(app/img/concorrente.jpg);
+  background-image: url(assets/img/concorrente.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .notaFiscal{
-  background-image: url(app/img/notaFical.jpg);
+  background-image: url(assets/img/notaFical.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 .cnae{
-  background-image: url(app/img/cnae.jpg);
+  background-image: url(assets/img/cnae.jpg);
   background-size: 220vh 82vh;
   background-repeat: no-repeat;
 }
