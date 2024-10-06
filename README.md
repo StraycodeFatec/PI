@@ -1,3 +1,3 @@
-Fabricio Rosa Soica
-Matheus Fernandes
-Matheus Prado Porciuncula
+- Fabricio Rosa Soica -
+- Matheus Fernandes -
+- Matheus Prado Porciuncula -
