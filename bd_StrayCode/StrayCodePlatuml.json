@@ -1,0 +1,101 @@
+@startjson
+{
+    "empresa": [
+        {
+            "id": 1,
+            "tipoEmpresa": "Comércio",
+            "descrição": "Empresas que compram e vendem produtos. Isso pode incluir varejistas, atacadistas e empresas de comércio eletrônico."
+        },
+        {
+            "id": 2,
+            "tipoEmpresa": "Serviços",
+            "descrição": "Empresas que oferecem serviços em vez de produtos tangíveis."
+        },
+        {
+            "id": 3,
+            "tipoEmpresa": "Indústria",
+            "descrição": "Empresas que fabricam produtos físicos."
+        }
+    ],
+    "notaFiscal": [
+        {
+            "id": 1,
+            "tiposNota": "NF-e",
+            "tipoEmpresa": [1, 2, 3]
+        },
+        {
+            "id": 2,
+            "tiposNota": "NFS-e",
+            "tipoEmpresa": [1, 2, 3]
+        }
+    ],
+    "ramoEmpresa": [
+        {
+            "id": 1,
+            "secao": "A",
+            "tipoEmpresa": [3],
+            "nomeRamoEmpresa": "AGRICULTURA"
+        },
+        {
+            "id": 7,
+            "secao": "G",
+            "tipoEmpresa": [1, 2],
+            "nomeRamoEmpresa": "COMÉRCIO DE VEÍCULOS"
+        }
+    ],
+    "cnae": [
+        {
+            "id": 1,
+            "numeroCnae": "0113-0/00",
+            "descricao": "Cultivo de cana-de-açúcar",
+            "ramoEmpresa": [1]
+        },
+        {
+            "id": 12,
+            "numeroCnae": "4511-1/01",
+            "descricao": "Comércio a varejo de automóveis",
+            "ramoEmpresa": [7]
+        }
+    ],
+    "usuario": [
+        {
+            "id": 1,
+            "login": "usuario123",
+            "nome": "Maria da Silva"
+        },
+        {
+            "id": 2,
+            "login": "joao123",
+            "nome": "João Almeida"
+        }
+    ],
+    "questionario": [
+        {
+            "id": 1,
+            "dtQuestionario": "2024-05-23",
+            "usuario": [1],
+            "cnae": [18, 19],
+            "tributacao": []
+        }
+    ],
+    "tributacao": [
+        {
+            "id": 1,
+            "tiposTributacao": "MEI",
+            "descricao": "Microempreendedor Individual"
+        },
+        {
+            "id": 2,
+            "tiposTributacao": "Simples Nacional",
+            "descricao": "Regime Simples"
+        }
+    ],
+    "escritorioContador": [
+        {
+            "id": 1,
+            "escritorioContador": "Geral",
+            "descricao": "Contabilidade para empresas"
+        }
+    ]
+}
+@endjson
