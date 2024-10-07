@@ -22,7 +22,8 @@ db.usuario.find(
 
 use('strayCode')
 db.questionario.find(
-    {$or: [{$and: [{"cnae.id": {$in: [18, 19]}}, {enderecoEmpresa: /santos$/i}]}, {$and: [{"cnae.id": {$in: [12, 13]}}, {enderecoEmpresa: {$not: {$eq: "Sorocaba"}}}]}]},
+    {$or: [{$and: [{"cnae.id": {$in: [18, 19]}}, {enderecoEmpresa: /santos$/i}]}, 
+    {$and: [{"cnae.id": {$in: [12, 13]}}, {enderecoEmpresa: {$not: {$eq: "Sorocaba"}}}]}]},
     {_id: 0})
 
 use('strayCode')
@@ -119,7 +120,7 @@ db.questionario.find(
                     type: "Point",
                     coordinates: [-47.444750, -23.529398], // Casa Votorantim
                 },
-                $maxDistance: 5000, // (5km)
+                $maxDistance: 500, // (5km)
             },
         },
     },

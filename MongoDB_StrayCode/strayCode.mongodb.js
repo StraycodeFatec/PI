@@ -2,19 +2,19 @@ use('strayCode')
 
 db.tipoEmpresa.insertMany([
     {
-        id:1,
+        id: 1,
         nomeTipoEmpresa: "Comércio",
         descrição: "Empresas que compram e vendem produtos. Isso pode incluir varejistas, atacadistas e empresas de comércio eletrônico.",
         notaFiscal: 1
     },
     {
-        id:2,
+        id: 2,
         nomeTipoEmpresa: "Serviços",
         descrição: "Empresas que oferecem serviços em vez de produtos tangíveis. Isso pode incluir empresas de consultoria, de tecnologia da informação, de saúde, de educação, de transporte, entre outras.",
         notaFiscal: 2
     },
     {
-        id:3,
+        id: 3,
         nomeTipoEmpresa: "Indústria",
         descrição: "Empresas que fabricam produtos físicos. Isso pode incluir indústrias de manufatura, de construção, de energia, entre outras.",
         notaFiscal: 1
@@ -23,12 +23,12 @@ db.tipoEmpresa.insertMany([
 
 db.notaFiscal.insertMany([
     {
-        id:1,
+        id: 1,
         tiposNota: "NF-e (Nota Fiscal Eletrônica de Produtos ou Mercadorias)",
         descricao: "Esse documento substitui o modelo tradicional. É a versão digital, emitida e armazenada eletronicamente. Limita-se a registrar a venda de produtos físicos, com cobrança de ICMS (Imposto sobre Circulação de Mercadoria Serviços) e IPI (Imposto sobre Produtos Industrializados) e deve ser expedida junto às Secretarias Estaduais da Fazenda. Utilizada sempre em casos de circulação de mercadorias, geralmente, este tipo de nota fiscal é utilizado entre pessoas jurídicas. Ao emitir a NF-e para o comprador, para atestar a operação, a empresa deve enviar um Documento Auxiliar da Nota Fiscal (DANFE) com o produto.",
     },
     {
-        id:2,
+        id: 2,
         tiposNota: "NFS-e (Nota Fiscal Eletrônica de Serviços)",
         descricao: "Esse documento substitui o modelo tradicional. É a versão digital, emitida e armazenada eletronicamente. Limita-se a registrar a venda de produtos físicos, com cobrança de ICMS (Imposto sobre Circulação de Mercadoria Serviços) e IPI (Imposto sobre Produtos Industrializados) e deve ser expedida junto às Secretarias Estaduais da Fazenda. Utilizada sempre em casos de circulação de mercadorias, geralmente, este tipo de nota fiscal é utilizado entre pessoas jurídicas. Ao emitir a NF-e para o comprador, para atestar a operação, a empresa deve enviar um Documento Auxiliar da Nota Fiscal (DANFE) com o produto.",
     }
@@ -36,64 +36,64 @@ db.notaFiscal.insertMany([
 
 db.ramoEmpresa.insertMany([
     {
-        id:1,
-        secao:"A",
+        id: 1,
+        secao: "A",
         tipoEmpresa: 3,
-        nomeRamoEmpresa:"AGRICULTURA, PECUÁRIA E SERVIÇOS RELACIONADOS"
+        nomeRamoEmpresa: "AGRICULTURA, PECUÁRIA E SERVIÇOS RELACIONADOS"
     },
     {
-        id:2,
-        secao:"A",
+        id: 2,
+        secao: "A",
         tipoEmpresa: 3,
-        nomeRamoEmpresa:"PRODUÇÃO FLORESTAL"
+        nomeRamoEmpresa: "PRODUÇÃO FLORESTAL"
     },
     {
-        id:3,
-        secao:"B",
+        id: 3,
+        secao: "B",
         tipoEmpresa: 3,
-        nomeRamoEmpresa:"EXTRAÇÃO DE CARVÃO MINERAL"
+        nomeRamoEmpresa: "EXTRAÇÃO DE CARVÃO MINERAL"
     },
     {
-        id:4,
-        secao:"B",
+        id: 4,
+        secao: "B",
         tipoEmpresa: 3,
-        nomeRamoEmpresa:"EXTRAÇÃO DE MINERAIS METÁLICOS"
+        nomeRamoEmpresa: "EXTRAÇÃO DE MINERAIS METÁLICOS"
     },
     {
-        id:5,
-        secao:"E",
+        id: 5,
+        secao: "E",
         tipoEmpresa: 3,
-        nomeRamoEmpresa:"CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA"
+        nomeRamoEmpresa: "CAPTAÇÃO, TRATAMENTO E DISTRIBUIÇÃO DE ÁGUA"
     },
     {
-        id:6,
-        secao:"E",
+        id: 6,
+        secao: "E",
         tipoEmpresa: 3,
-        nomeRamoEmpresa:"COLETA, TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS; RECUPERAÇÃO DE MATERIAIS"
+        nomeRamoEmpresa: "COLETA, TRATAMENTO E DISPOSIÇÃO DE RESÍDUOS; RECUPERAÇÃO DE MATERIAIS"
     },
     {
-        id:7,
-        secao:"G",
+        id: 7,
+        secao: "G",
         tipoEmpresa: 1,
-        nomeRamoEmpresa:"COMÉRCIO E REPARAÇÃO DE VEÍCULOS AUTOMOTORES E MOTOCICLETAS"
+        nomeRamoEmpresa: "COMÉRCIO E REPARAÇÃO DE VEÍCULOS AUTOMOTORES E MOTOCICLETAS"
     },
     {
-        id:8,
-        secao:"G",
+        id: 8,
+        secao: "G",
         tipoEmpresa: 1,
-        nomeRamoEmpresa:"COMÉRCIO POR ATACADO, EXCETO VEÍCULOS AUTOMOTORES E MOTOCICLETAS"
+        nomeRamoEmpresa: "COMÉRCIO POR ATACADO, EXCETO VEÍCULOS AUTOMOTORES E MOTOCICLETAS"
     },
     {
-        id:9,
-        secao:"H",
+        id: 9,
+        secao: "H",
         tipoEmpresa: 2,
-        nomeRamoEmpresa:"TRANSPORTE TERRESTRE"
+        nomeRamoEmpresa: "TRANSPORTE TERRESTRE"
     },
     {
-        id:10,
-        secao:"H",
+        id: 10,
+        secao: "H",
         tipoEmpresa: 2,
-        nomeRamoEmpresa:"TRANSPORTE AQUAVIÁRIO"
+        nomeRamoEmpresa: "TRANSPORTE AQUAVIÁRIO"
     },
     {
         id: 11,
@@ -256,12 +256,12 @@ db.cnae.insertMany([
         descricao: "Atividade médica ambulatorial com recursos para realização de procedimentos cirúrgicos",
         ramoEmpresa: 12,
         abrirEmpresa: 2
-    }  
+    }
 ])
 
 db.usuario.insertMany([
     {
-        id:1,
+        id: 1,
         login: "usuario123",
         senha: "senhaSegura",
         nome: "Maria da Silva",
@@ -269,7 +269,7 @@ db.usuario.insertMany([
         email: "maria@email.com"
     },
     {
-        id:2,
+        id: 2,
         login: "joao123",
         senha: "senhaSegura2",
         nome: "joão Almeida",
@@ -277,7 +277,7 @@ db.usuario.insertMany([
         email: "joao@email.com"
     },
     {
-        id:3,
+        id: 3,
         login: "gabi123",
         senha: "senhaSegura3",
         nome: "Gabriela Silva",
@@ -285,7 +285,7 @@ db.usuario.insertMany([
         email: "gabi@email.com"
     },
     {
-        id:4,
+        id: 4,
         login: "leticia123",
         senha: "senhaSegura4",
         nome: "Leticia Vasquez",
@@ -293,7 +293,7 @@ db.usuario.insertMany([
         email: "leticia@email.com"
     },
     {
-        id:5,
+        id: 5,
         login: "fernando123",
         senha: "senhaSegura5",
         nome: "Fernando Scheut",
@@ -307,19 +307,19 @@ db.questionario.insertMany([
         id: 1,
         dtQuestionario: new Date("2024-05-23"),
         cnae: [
-                {
-                    id: 18,
-                    numeroCnae: "5011-4/02",
-                    descricao: "Transporte marítimo de cabotagem - Passageiros",
-                    ramoEmpresa: 11
-                },
-                {
-                    id: 19,
-                    numeroCnae: "5011-4/01",
-                    descricao: "Transporte marítimo de cabotagem - Carga",
-                    ramoEmpresa: 11
-                }
-            ],
+            {
+                id: 18,
+                numeroCnae: "5011-4/02",
+                descricao: "Transporte marítimo de cabotagem - Passageiros",
+                ramoEmpresa: 11
+            },
+            {
+                id: 19,
+                numeroCnae: "5011-4/01",
+                descricao: "Transporte marítimo de cabotagem - Carga",
+                ramoEmpresa: 11
+            }
+        ],
         usuario: 1,
         tributacao: 3,
         enderecoEmpresa: "Conselheiro Rodrigues, Santos",
@@ -332,13 +332,13 @@ db.questionario.insertMany([
         id: 2,
         dtQuestionario: new Date("2024-09-16"),
         cnae: [
-                {
-                    id: 5,
-                    numeroCnae: "0500-3/01",
-                    descricao: "Extração de carvão mineral",
-                    ramoEmpresa: 4
-                }
-            ],
+            {
+                id: 5,
+                numeroCnae: "0500-3/01",
+                descricao: "Extração de carvão mineral",
+                ramoEmpresa: 4
+            }
+        ],
         usuario: 2,
         tributacao: 2,
         enderecoEmpresa: "Avenida Liberdade, Sorocaba",
@@ -351,13 +351,13 @@ db.questionario.insertMany([
         id: 3,
         dtQuestionario: new Date("2024-07-30"),
         cnae: [
-                {
-                    id: 17,
-                    numeroCnae: "4923-0/01",
-                    descricao: "Serviço de táxi",
-                    ramoEmpresa: 9
-                }
-            ],
+            {
+                id: 17,
+                numeroCnae: "4923-0/01",
+                descricao: "Serviço de táxi",
+                ramoEmpresa: 9
+            }
+        ],
         usuario: 3,
         tributacao: 1,
         enderecoEmpresa: "Jerome Case, Sorocaba",
@@ -370,19 +370,19 @@ db.questionario.insertMany([
         id: 4,
         dtQuestionario: new Date("2024-03-30"),
         cnae: [
-                {
-                    id: 12,
-                    numeroCnae: "4511-1/01",
-                    descricao: "Comércio a varejo de automóveis, camionetas e utilitários novos",
-                    ramoEmpresa: 7
-                },
-                {
-                    id: 13,
-                    numeroCnae: "4512-9/01",
-                    descricao: "Representantes comerciais e agentes do comércio de veículos automotores",
-                    ramoEmpresa: 7
-                }
-            ],
+            {
+                id: 12,
+                numeroCnae: "4511-1/01",
+                descricao: "Comércio a varejo de automóveis, camionetas e utilitários novos",
+                ramoEmpresa: 7
+            },
+            {
+                id: 13,
+                numeroCnae: "4512-9/01",
+                descricao: "Representantes comerciais e agentes do comércio de veículos automotores",
+                ramoEmpresa: 7
+            }
+        ],
         usuario: 4,
         tributacao: 4,
         enderecoEmpresa: "Amirtes Luvison, Votorantim",
@@ -393,17 +393,27 @@ db.questionario.insertMany([
     },
     {
         id: 5,
-        dtQuestionario: new  Date("2024-10-15"),
+        dtQuestionario: new Date("2024-10-15"),
         cnae: [
-                {
-                    id: 2,
-                    numeroCnae: "0131-8/00",
-                    descricao: "Cultivo de laranja",
-                    ramoEmpresa: 2
-                }
-            ],
+            {
+                id: 2,
+                numeroCnae: "0131-8/00",
+                descricao: "Cultivo de laranja",
+                ramoEmpresa: 2
+            }
+        ],
         usuario: 5,
         tributacao: 1,
+        enderecos: {
+            cep: "01001-000",
+            logradouro: "Praça da Sé",
+            complemento: "lado ímpar",
+            unidade: "",
+            bairro: "Sé",
+            localidade: "São Paulo",
+            uf: "SP",
+            regiao: "Sudeste"
+        },
         enderecoEmpresa: "Itavuvu Havan, Sorocaba",
         location: {
             type: "Point",
@@ -442,12 +452,12 @@ db.tributacao.insertMany([
 db.abrirEmpresa.insertMany([
     {
         id: 1,
-        formasAbirEmpresa: "Junta Comercial",
+        formasAbrirEmpresa: "Junta Comercial",
         descricao: "Junta Comercial: É o órgão responsável pelo registro de empresas que exercem atividades empresariais. Isso inclui empresas comerciais, industriais e prestadoras de serviços que têm como objetivo a geração de lucro por meio da produção ou venda de bens e serviços em larga escala. Exemplos de tipos de empresas que são registradas na Junta Comercial: - Empresa Individual de Responsabilidade Limitada (EIRELI); - Sociedade Empresária Limitada (LTDA); - Sociedade Anônima (S/A); - Microempreendedor Individual (MEI). Essas empresas visam ao lucro e possuem uma atividade econômica organizada, e por isso devem ser registradas nas juntas comerciais estaduais, como a JUCESP em São Paulo."
     },
     {
         id: 2,
-        formasAbirEmpresa: "Cartório",
+        formasAbrirEmpresa: "Cartório",
         descricao: "Cartório de Registro de Pessoas Jurídicas: Por outro lado, o cartório é responsável pelo registro de sociedades que não exercem atividades empresariais, como a Sociedade Simples (usada por profissionais liberais, como médicos, advogados, dentistas, etc.) e entidades sem fins lucrativos, como associações e fundações. O foco dessas entidades não é a exploração econômica ou empresarial no sentido amplo, mas sim a prestação de serviços profissionais ou sociais."
     }
 ])
@@ -467,6 +477,30 @@ db.escolherContabilidade.insertMany([
         id: 3,
         escolherContabilidade: "Presencial",
         descricao: "Empresas de Médio e Grande Porte: Priorize o Atendimento Presencial. Para empresas de médio e grande porte, a contabilidade é um processo complexo e contínuo, envolvendo uma série de atividades que vão além da simples emissão de guias ou envio de declarações. É necessário lidar com planejamento tributário, gestão de folhas de pagamento, auditorias frequentes, cumprimento de normas contábeis específicas, além de gerenciar fiscalizações e ajustes constantes em um ambiente regulatório em evolução. Nesse contexto, contar com um escritório contábil presencial pode ser a escolha mais acertada. Veja por quê: - Contato Humano e Relacionamento: O contato direto com contadores experientes permite discussões mais aprofundadas, consultas frequentes e até reuniões estratégicas que ajudam na tomada de decisões financeiras importantes. Para empresas com estruturas mais complexas, esse relacionamento é fundamental. - Suporte em Situações Críticas: Em momentos delicados, como auditorias, fiscalizações ou ajustes fiscais, a presença física de contadores pode ser determinante para garantir que tudo ocorra de maneira rápida e correta. A proximidade permite uma resposta mais ágil e personalizada. - Gestão Personalizada: Um escritório presencial tende a conhecer mais profundamente as particularidades da empresa, personalizando soluções contábeis, tributárias e financeiras, o que pode contribuir para otimizar impostos e melhorar a saúde financeira do negócio. Portanto, para empresas de médio e grande porte, onde a demanda por serviços contábeis é alta e contínua, a escolha por um escritório contábil presencial oferece um atendimento mais próximo, humano e personalizado, algo que pode ser essencial para uma gestão eficiente."
+    }
+])
+
+use('strayCode')
+db.enderecos.insertMany([
+    {
+        cep: "01001-000",
+        logradouro: "Praça da Sé",
+        complemento: "lado ímpar",
+        unidade: "",
+        bairro: "Sé",
+        localidade: "São Paulo",
+        uf: "SP",
+        regiao: "Sudeste",
+    },
+    {
+        cep: "18111-620",
+        logradouro: "Rua José Agostinho",
+        complemento: "",
+        unidade: "",
+        bairro: "Jardim Archila",
+        localidade: "Votorantim",
+        uf: "SP",
+        regiao: "Sudeste",
     }
 ])
 
