@@ -1,6 +1,6 @@
 use('strayCode')
 db.cnae.find(
-    {descricao: /^c/i, ramoEmpresa: [2]},
+    {descricao: /^c/i, ramoEmpresa: 2},
     {numeroCnae: 1, tiposTributacao: 1, descricao: 1, _id: 0})
 
 const dataComeco = new Date("2024-01-01")
@@ -21,9 +21,9 @@ db.usuario.find(
     {_id: 0, nome: 1, cpf: 1})
 
 use('strayCode')
-db.tributacao.find(
-    {$or: [{$and: [{cnae: {$in: [20, 21]}}, {tiposTributacao: /real/i}]}, {cnae: {$nin: [20,21]}}]},
-    {tiposTributacao: 1, descricao: 1, _id:0})
+db.questionario.find(
+    {$or: [{$and: [{"cnae.id": {$in: [18, 19]}}, {enderecoEmpresa: /santos$/i}]}, {$and: [{"cnae.id": {$in: [12, 13]}}, {enderecoEmpresa: {$not: {$eq: "Sorocaba"}}}]}]},
+    {_id: 0})
 
 use('strayCode')
 db.tipoEmpresa.aggregate([
