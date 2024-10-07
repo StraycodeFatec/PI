@@ -299,7 +299,12 @@ db.questionario.insertMany([
                 }
             ],
         usuario: 1,
-        tributacao: 3
+        tributacao: 3,
+        enderecoEmpresa: "Conselheiro Rodrigues, Santos",
+        location: {
+            type: "Point",
+            coordinates: [-46.301675, -23.965698] // Coordenadas do Porto de Santos
+        }
     },
     {
         id: 2,
@@ -313,7 +318,12 @@ db.questionario.insertMany([
                 }
             ],
         usuario: 2,
-        tributacao: 2
+        tributacao: 2,
+        enderecoEmpresa: "Avenida Liberdade, Sorocaba",
+        location: {
+            type: "Point",
+            coordinates: [-47.367350, -23.428858]  //Flextronics, Sorocaba
+        }
     },
     {
         id: 3,
@@ -327,7 +337,12 @@ db.questionario.insertMany([
                 }
             ],
         usuario: 3,
-        tributacao: 1
+        tributacao: 1,
+        enderecoEmpresa: "Jerome Case, Sorocaba",
+        location: {
+            type: "Point",
+            coordinates: [-47.391109, -23.432192] //CNHI, Sorocaba
+        }
     },
     {
         id: 4,
@@ -347,7 +362,12 @@ db.questionario.insertMany([
                 }
             ],
         usuario: 4,
-        tributacao: 4
+        tributacao: 4,
+        enderecoEmpresa: "Amirtes Luvison, Votorantim",
+        location: {
+            type: "Point",
+            coordinates: [-47.441088, -23.546378], // Coordenadas da Alpina Votorantim
+        }
     },
     {
         id: 5,
@@ -361,7 +381,12 @@ db.questionario.insertMany([
                 }
             ],
         usuario: 5,
-        tributacao: 1
+        tributacao: 1,
+        enderecoEmpresa: "Itavuvu Havan, Sorocaba",
+        location: {
+            type: "Point",
+            coordinates: [-47.480185, -23.459150] // Itavuvu Havan, Sorocaba
+        }
     }
 ])
 
@@ -425,82 +450,6 @@ db.escolherContabilidade.insertMany([
         escolherContabilidade: "Presencial",
         descricao: "Empresas de Médio e Grande Porte: Priorize o Atendimento Presencial. Para empresas de médio e grande porte, a contabilidade é um processo complexo e contínuo, envolvendo uma série de atividades que vão além da simples emissão de guias ou envio de declarações. É necessário lidar com planejamento tributário, gestão de folhas de pagamento, auditorias frequentes, cumprimento de normas contábeis específicas, além de gerenciar fiscalizações e ajustes constantes em um ambiente regulatório em evolução. Nesse contexto, contar com um escritório contábil presencial pode ser a escolha mais acertada. Veja por quê: - Contato Humano e Relacionamento: O contato direto com contadores experientes permite discussões mais aprofundadas, consultas frequentes e até reuniões estratégicas que ajudam na tomada de decisões financeiras importantes. Para empresas com estruturas mais complexas, esse relacionamento é fundamental. - Suporte em Situações Críticas: Em momentos delicados, como auditorias, fiscalizações ou ajustes fiscais, a presença física de contadores pode ser determinante para garantir que tudo ocorra de maneira rápida e correta. A proximidade permite uma resposta mais ágil e personalizada. - Gestão Personalizada: Um escritório presencial tende a conhecer mais profundamente as particularidades da empresa, personalizando soluções contábeis, tributárias e financeiras, o que pode contribuir para otimizar impostos e melhorar a saúde financeira do negócio. Portanto, para empresas de médio e grande porte, onde a demanda por serviços contábeis é alta e contínua, a escolha por um escritório contábil presencial oferece um atendimento mais próximo, humano e personalizado, algo que pode ser essencial para uma gestão eficiente.",
         tributacao: [3, 4]
-    }
-])
-
-use('strayCode')
-db.cnae.find(
-    {descricao: /^c/i, ramoEmpresa: [2]},
-    {numeroCnae: 1, tiposTributacao: 1, descricao: 1, _id: 0})
-
-const dataComeco = new Date("2024-01-01")
-const dataFinal = new Date("2024-06-30")
-use('strayCode')
-db.questionario.find(
-    {dtQuestionario: {$gte: dataComeco, $lte: dataFinal}},
-    {dtQuestionario: 1, _id: 0, cnae: {id: 1, descricao: 1}})
-
-use('strayCode')
-db.questionario.find(
-    {$and: [{$or: [{tributacao: 1}, {tributacao: 2}]}, {"cnae.descricao": {$not: /^cultivo/i}}]},
-    {_id:0, dtQuestionario:1, cnae: {numeroCnae: 1, descricao: 1}, tributacao:1})
-
-use('strayCode')
-db.usuario.find(
-    {$and: [{$and: [{id: {$gt: 1}}, {cpf: {$not: /^98/}}]}, {$and: [{cpf: {$not: /05$/}}, {nome: /[lv]a$/}]}]},
-    {_id: 0, nome: 1, cpf: 1})
-
-use('strayCode')
-db.tributacao.find(
-    {$or: [{$and: [{cnae: {$in: [20, 21]}}, {tiposTributacao: /real/i}]}, {cnae: {$nin: [20,21]}}]},
-    {tiposTributacao: 1, descricao: 1, _id:0})
-
-use('strayCode')
-db.tipoEmpresa.aggregate([
-    {
-        $lookup: {
-          from: 'ramoEmpresa',
-          localField: 'id',
-          foreignField: 'tipoEmpresa',
-          as: 'ramoEmpresa'
-        }
-    },
-    {
-        $match: {
-          'nomeTipoEmpresa': {$eq: "Indústria"}
-        }
-    },
-    {
-        $project: {
-          '_id': 0,
-          'ramoEmpresa._id': 0
-        }
-    }
-])
-
-use('strayCode')
-db.questionario.aggregate([
-    {
-        $lookup: {
-          from: 'tributacao',
-          localField: 'tributacao',
-          foreignField: 'id',
-          as: 'detalhesTributacao'
-        }
-    },
-    {
-        $match: {
-          'detalhesTributacao.tiposTributacao': {$eq: "MEI"}
-        }
-    },
-    {
-        $project: {
-          'questionario.dtQuestionario': 0,
-          '_id': 0,
-          'cnae.ramoEmpresa': 0,
-          'detalhesTributacao._id': 0,
-          'detalhesTributacao.cnae': 0
-        }
     }
 ])
 
