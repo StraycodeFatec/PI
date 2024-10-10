@@ -385,7 +385,16 @@ db.questionario.insertMany([
         ],
         usuario: 4,
         tributacao: 4,
-        enderecoEmpresa: "Amirtes Luvison, Votorantim",
+        enderecos: {
+            cep: "18114-060",
+            logradouro: "Rua Amirtes Luvison",
+            complemento: "de 2600/2601 ao fim",
+            unidade: "",
+            bairro: "Vila Dominguinho",
+            localidade: "Votorantim",
+            uf: "SP",
+            regiao: "Sudeste"
+        },
         location: {
             type: "Point",
             coordinates: [-47.441088, -23.546378], // Coordenadas da Alpina Votorantim
@@ -405,16 +414,15 @@ db.questionario.insertMany([
         usuario: 5,
         tributacao: 1,
         enderecos: {
-            cep: "01001-000",
-            logradouro: "Praça da Sé",
-            complemento: "lado ímpar",
+            cep: "18078-005",
+            logradouro: "Av. Itavuvu",
+            complemento: "de 2600/2601 ao fim",
             unidade: "",
-            bairro: "Sé",
-            localidade: "São Paulo",
+            bairro: "Jardim Santa Cecília",
+            localidade: "Sorocaba",
             uf: "SP",
             regiao: "Sudeste"
         },
-        enderecoEmpresa: "Itavuvu Havan, Sorocaba",
         location: {
             type: "Point",
             coordinates: [-47.480185, -23.459150] // Itavuvu Havan, Sorocaba
